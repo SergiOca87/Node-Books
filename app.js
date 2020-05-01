@@ -1,11 +1,13 @@
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
-
+require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const pass = process.env.DB_PASS
+
 // Connection URL
-const url = 'mongodb+srv://Sergi:QrGIYo5Bn6aVxT3X@cluster0-ej6db.mongodb.net/nodeBooks?retryWrites=true&w=majority';
+const url = `mongodb+srv://Sergi:${pass}@cluster0-ej6db.mongodb.net/nodeBooks?retryWrites=true&w=majority`;
 
 // Create a new MongoClient
 const client = new MongoClient(url, {useUnifiedTopology: true});
